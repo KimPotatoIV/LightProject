@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr7yemjg5uuet"]
+
+[ext_resource type="Texture2D" uid="uid://kqotkycevejm" path="res://scenes/box/Dungeon_Tileset_resized.png" id="1_dry3k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51kwt"]
+atlas = ExtResource("1_dry3k")
+region = Rect2(256, 512, 64, 64)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vf6jd"]
+radius = 24.0
+height = 56.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dry3k"]
+polygon = PackedVector2Array(-28, -15, -28, 24, 28, 24, 28, -16, 20, -24, -20, -24)
+
+[node name="Box" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_51kwt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_vf6jd")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_dry3k")
